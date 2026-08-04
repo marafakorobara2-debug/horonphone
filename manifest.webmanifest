@@ -1,0 +1,50 @@
+{
+  "id": "./",
+  "name": "MobiLab — Accessoires mobile",
+  "short_name": "MobiLab",
+  "description": "Accessoires premium pour iPhone, Samsung et chargeurs rapides.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#fffdf8",
+  "theme_color": "#174dca",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Voir les produits",
+      "short_name": "Produits",
+      "url": "./index.html#products",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Choisir mon appareil",
+      "short_name": "Compatibilité",
+      "url": "./index.html#categories",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MobiLab — accessoires premium pour iPhone, Samsung et chargeurs rapides."
+    />
+    <title>MobiLab — Accessoires qui vous suivent partout</title>
+    <meta name="theme-color" content="#174dca" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="MobiLab" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="assets/app-icon.svg" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="announcement">
+      <span>Livraison offerte dès 35 000 FCFA</span>
+      <span class="announcement-dot" aria-hidden="true"></span>
+      <span>Retours sous 14 jours</span>
+    </div>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="MobiLab, accueil">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span>Mobi<span>Lab</span></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <a href="#products">Nouveautés</a>
+        <a href="#categories">iPhone</a>
+        <a href="#categories">Samsung</a>
+        <a href="#products">Chargeurs</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="install-app-button" type="button" hidden aria-label="Installer l’application MobiLab">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 20h14"></path></svg>
+          <span>Installer</span>
+        </button>
+        <button class="icon-button search-toggle" type="button" aria-label="Ouvrir la recherche">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+        </button>
+        <button class="icon-button wishlist-button" type="button" aria-label="Voir les favoris">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.5 9.5c0 5-8.5 9.5-8.5 9.5S3.5 14.5 3.5 9.5a4.3 4.3 0 0 1 7.5-2.9l1 1.1 1-1.1a4.3 4.3 0 0 1 7.5 2.9Z"></path></svg>
+          <span class="count-badge favorite-count" hidden>0</span>
+        </button>
+        <button class="icon-button account-button" type="button" aria-label="Ouvrir mon compte">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M5.5 20a6.5 6.5 0 0 1 13 0"></path></svg>
+          <span class="account-status-dot" hidden></span>
+        </button>
+        <button class="cart-button" type="button" aria-label="Ouvrir le panier">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg>
+          <span>Panier</span>
+          <span class="cart-count">0</span>
+        </button>
+        <button class="menu-button" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="search-panel" role="search" aria-hidden="true">
+      <div class="search-panel-inner">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+        <input id="site-search" type="search" placeholder="Rechercher une coque, un chargeur…" autocomplete="off" />
+        <kbd>Échap</kbd>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Navigation mobile" aria-hidden="true">
+      <a href="#products">Nouveautés</a>
+      <a href="#categories">iPhone</a>
+      <a href="#categories">Samsung</a>
+      <a href="#products">Chargeurs</a>
+    </nav>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <img src="assets/hero-accessories.png" alt="Téléphones, coques, câble, chargeur et écouteurs disposés en studio" />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow"><span></span> Nouveautés 2026</p>
+          <h1 id="hero-title">Tout pour votre téléphone.<br /><em>Rien de superflu.</em></h1>
+          <p class="hero-copy">Des accessoires fiables, beaux et pensés pour durer — sélectionnés pour iPhone et Samsung.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#products">Découvrir la collection <span aria-hidden="true">↗</span></a>
+            <button class="button button-ghost" type="button" data-scroll="categories">Choisir mon appareil</button>
+          </div>
+        </div>
+        <div class="hero-note">
+          <span>01</span>
+          <p><strong>Compatible & garanti</strong>Chaque produit est testé sur les appareils indiqués.</p>
+        </div>
+      </section>
+
+      <section class="benefits" aria-label="Nos garanties">
+        <article>
+          <span class="benefit-icon">↗</span>
+          <p><strong>Livraison rapide</strong>Partout au Mali en 24–72 h</p>
+        </article>
+        <article>
+          <span class="benefit-icon">◇</span>
+          <p><strong>Garantie 12 mois</strong>Un souci ? On s’en occupe</p>
+        </article>
+        <article>
+          <span class="benefit-icon">✓</span>
+          <p><strong>Paiement sécurisé</strong>Mobile Money ou à la livraison</p>
+        </article>
+        <article>
+          <span class="benefit-icon">◎</span>
+          <p><strong>Conseil humain</strong>Une équipe disponible 7j/7</p>
+        </article>
+      </section>
+
+      <section class="categories section-shell" id="categories" aria-labelledby="category-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">01 — PAR APPAREIL</p>
+            <h2 id="category-title">Trouvez votre essentiel.</h2>
+          </div>
+          <p>Une sélection courte, claire et compatible. Parce que choisir le bon accessoire ne devrait pas prendre des heures.</p>
+        </div>
+
+        <div class="category-grid">
+          <button class="category-card category-iphone" type="button" data-filter-target="iphone">
+            <span class="category-number">01</span>
+            <span class="device-art iphone-art"><i></i><b></b></span>
+            <span class="category-copy"><small>POUR</small><strong>iPhone</strong><em>Voir les accessoires <span>↗</span></em></span>
+          </button>
+          <button class="category-card category-samsung" type="button" data-filter-target="samsung">
+            <span class="category-number">02</span>
+            <span class="device-art samsung-art"><i></i><b></b></span>
+            <span class="category-copy"><small>POUR</small><strong>Samsung</strong><em>Voir les accessoires <span>↗</span></em></span>
+          </button>
+          <button class="category-card category-charge" type="button" data-filter-target="chargeurs">
+            <span class="category-number">03</span>
+            <span class="charger-art"><i></i><b></b><u></u></span>
+            <span class="category-copy"><small>ÉNERGIE</small><strong>Chargeurs</strong><em>Voir les accessoires <span>↗</span></em></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="products section-shell" id="products" aria-labelledby="product-title">
+        <div class="products-topline">
+          <div>
+            <p class="section-index">02 — LA SÉLECTION</p>
+            <h2 id="product-title">Nos incontournables.</h2>
+          </div>
+          <div class="filters" role="group" aria-label="Filtrer les produits">
+            <button class="filter active" type="button" data-filter="all">Tout</button>
+            <button class="filter" type="button" data-filter="iphone">iPhone</button>
+            <button class="filter" type="button" data-filter="samsung">Samsung</button>
+            <button class="filter" type="button" data-filter="chargeurs">Chargeurs</button>
+          </div>
+        </div>
+
+        <div class="product-grid" aria-live="polite"></div>
+        <p class="empty-state" hidden>Aucun produit ne correspond à votre recherche.</p>
+      </section>
+
+      <section class="compatibility section-shell">
+        <div class="compatibility-card">
+          <div class="compatibility-art" aria-hidden="true">
+            <span class="orbit orbit-one"></span>
+            <span class="orbit orbit-two"></span>
+            <span class="compat-phone"><i></i></span>
+            <span class="compat-case"></span>
+          </div>
+          <div class="compatibility-content">
+            <p class="section-index light">03 — ZÉRO DOUTE</p>
+            <h2>Le bon accessoire,<br />du premier coup.</h2>
+            <p>Indiquez votre modèle et nous n’afficherons que les produits vraiment compatibles.</p>
+            <form class="device-form">
+              <label>
+                <span>Votre marque</span>
+                <select id="brand-select">
+                  <option value="iphone">Apple iPhone</option>
+                  <option value="samsung">Samsung Galaxy</option>
+                </select>
+              </label>
+              <label>
+                <span>Votre modèle</span>
+                <select id="model-select">
+                  <option>iPhone 16 Pro</option>
+                  <option>iPhone 16</option>
+                  <option>iPhone 15 Pro</option>
+                  <option>iPhone 14</option>
+                </select>
+              </label>
+              <button class="button button-coral" type="submit">Voir les produits compatibles <span>→</span></button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="newsletter section-shell">
+        <div>
+          <p class="section-index">BON PLAN, BON TIMING</p>
+          <h2>Les nouveautés avant tout le monde.</h2>
+        </div>
+        <form class="newsletter-form">
+          <label class="sr-only" for="email">Votre adresse email</label>
+          <input id="email" type="email" placeholder="votre@email.com" required />
+          <button type="submit" aria-label="S’inscrire à la newsletter">→</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-main section-shell">
+        <div class="footer-brand">
+          <a class="brand brand-light" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>Mobi<span>Lab</span></span></a>
+          <p>Des accessoires qui simplifient votre quotidien, sans compromis sur le style.</p>
+        </div>
+        <div class="footer-links"><strong>Produits</strong><a href="#categories">iPhone</a><a href="#categories">Samsung</a><a href="#products">Chargeurs</a><a href="#products">Audio</a></div>
+        <div class="footer-links"><strong>Aide</strong><a href="#">Livraison</a><a href="#">Retours</a><a href="#">Garantie</a><a href="#">Contact</a></div>
+        <div class="footer-links"><strong>Nous suivre</strong><a href="#">Instagram ↗</a><a href="#">TikTok ↗</a><a href="#">WhatsApp ↗</a></div>
+      </div>
+      <div class="footer-bottom section-shell"><span>© 2026 MobiLab.</span><span>Bamako, Mali</span><span>Mentions légales · Confidentialité</span></div>
+    </footer>
+
+    <div class="page-overlay" hidden></div>
+
+    <aside class="cart-drawer" aria-hidden="true" aria-labelledby="cart-title">
+      <div class="drawer-header">
+        <div><p class="section-index">VOTRE SÉLECTION</p><h2 id="cart-title">Panier <span class="drawer-count">0</span></h2></div>
+        <button class="drawer-close icon-button" type="button" aria-label="Fermer le panier">×</button>
+      </div>
+      <div class="cart-items"></div>
+      <div class="cart-empty">
+        <span>◇</span>
+        <strong>Votre panier est vide</strong>
+        <p>Ajoutez un accessoire pour commencer.</p>
+      </div>
+      <div class="cart-footer" hidden>
+        <div><span>Sous-total</span><strong class="cart-total">0 FCFA</strong></div>
+        <p>Livraison calculée à l’étape suivante.</p>
+        <button class="button button-primary checkout-button" type="button">Commander <span>→</span></button>
+      </div>
+      <a class="cart-whatsapp" href="https://wa.me/22378791269?text=Bonjour%20MobiLab%2C%20je%20souhaite%20passer%20une%20commande." target="_blank" rel="noopener noreferrer" aria-label="Contacter MobiLab sur WhatsApp au +223 78 79 12 69">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+          <path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.4-4.7A8.5 8.5 0 1 1 20.5 11.7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.1 7.6c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.9c.1.3 0 .5-.2.7l-.6.7c-.2.2-.1.4 0 .6.5 1 1.4 1.9 2.4 2.4.2.1.4.2.6 0l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.5 0 .4-.2 1.4-.8 2-.6.6-1.4.9-2.3.7-1.4-.3-3.3-1.1-5-2.7-1.4-1.4-2.4-3.1-2.7-4.5-.2-.9.1-1.6.5-2Z" fill="currentColor"/>
+        </svg>
+        <span><strong>Commander sur WhatsApp</strong><small>+223 78 79 12 69</small></span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </aside>
+
+    <dialog class="quick-view">
+      <button class="modal-close icon-button" type="button" aria-label="Fermer">×</button>
+      <div class="modal-content"></div>
+    </dialog>
+
+    <dialog class="account-dialog" aria-labelledby="account-dialog-title">
+      <button class="account-close icon-button" type="button" aria-label="Fermer">×</button>
+      <div class="account-content"></div>
+    </dialog>
+
+    <dialog class="admin-dialog" aria-labelledby="admin-title">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+          <div><strong>MobiLab</strong><small>Administration</small></div>
+        </div>
+        <nav aria-label="Sections d’administration">
+          <button class="admin-nav active" type="button" data-admin-view="dashboard">Vue d’ensemble</button>
+          <button class="admin-nav" type="button" data-admin-view="products">Produits</button>
+          <button class="admin-nav" type="button" data-admin-view="orders">Commandes</button>
+          <button class="admin-nav" type="button" data-admin-view="users">Utilisateurs</button>
+        </nav>
+        <button class="admin-exit" type="button">← Retour à la boutique</button>
+      </aside>
+      <section class="admin-workspace">
+        <header class="admin-header">
+          <div><p class="section-index">ESPACE SÉCURISÉ</p><h2 id="admin-title">Administration</h2></div>
+          <div class="admin-identity"></div>
+        </header>
+        <div class="admin-content"></div>
+      </section>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+    <script src="app.js"></script>
+  </body>
+</html>
