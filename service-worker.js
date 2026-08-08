@@ -1,4 +1,4 @@
-const CACHE_NAME = "horon-phone-v9";
+const CACHE_NAME = "horon-phone-v10";
 const APP_SHELL = [
   "./",
   "./index.html",
