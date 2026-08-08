@@ -1,4 +1,4 @@
-const CACHE_NAME = "mobilab-v4";
+const CACHE_NAME = "horon-phone-v9";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -9,7 +9,9 @@ const APP_SHELL = [
   "./assets/icon-192.png",
   "./assets/icon-512.png",
   "./assets/icon-maskable-512.png",
-  "./assets/hero-accessories.png"
+  "./assets/hero-owner-professional.webp",
+  "./assets/owner-main.jpeg",
+  "./assets/owner-secondary.jpeg"
 ];
 
 self.addEventListener("install", event => {

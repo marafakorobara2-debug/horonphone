@@ -9,9 +9,6 @@ const defaultProducts = [
   { id: 8, name: "Support voiture Grip", category: "samsung", label: "Voiture", price: 16900, stock: 21, badge: "Universel", art: "holder", colors: ["#20242b"], rating: 4.8, description: "Fixation stable sur grille d’aération, rotation 360° et pose du téléphone à une main." }
 ];
 
-const ADMIN_EMAIL = "admin@mobilab.ml";
-const ADMIN_PASSWORD_HASH = "fb4596067489e43ad638410ba69449f2d953cbaac79ea453772b5d6f252a08c1";
-
 function loadLocal(key, fallback) {
   try {
     const saved = JSON.parse(localStorage.getItem(key));
@@ -30,17 +27,13 @@ let users = loadLocal("mobilab-users", []);
 let orders = loadLocal("mobilab-orders", []);
 let sessionUserId = localStorage.getItem("mobilab-session");
 
-if (!users.some(user => user.email === ADMIN_EMAIL)) {
-  users.push({
-    id: "admin-local",
-    name: "Administrateur MobiLab",
-    email: ADMIN_EMAIL,
-    phone: "",
-    passwordHash: ADMIN_PASSWORD_HASH,
-    role: "admin",
-    createdAt: new Date().toISOString()
-  });
+if (users.some(user => user.id === "admin-local")) {
+  users = users.filter(user => user.id !== "admin-local");
   saveLocal("mobilab-users", users);
+  if (sessionUserId === "admin-local") {
+    sessionUserId = null;
+    localStorage.removeItem("mobilab-session");
+  }
 }
 
 const productGrid = document.querySelector(".product-grid");
@@ -244,7 +237,7 @@ function openProduct(productId) {
 function authShell(content) {
   return `<div class="auth-layout">
     <aside class="auth-aside">
-      <span class="brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>MobiLab</span></span>
+      <span class="brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>Horon Phone</span></span>
       <h2>Votre univers mobile, personnel.</h2>
       <p>Créez un compte pour commander plus vite et retrouver vos achats.</p>
     </aside>
@@ -260,7 +253,7 @@ function renderAccount() {
       <p class="section-index">MON COMPTE</p>
       <h2 id="account-dialog-title">Bonjour, ${escapeHTML(user.name.split(" ")[0])}</h2>
       <p>${escapeHTML(user.email)}</p>
-      <span class="profile-role">${user.role === "admin" ? "Administrateur" : "Client MobiLab"}</span>
+      <span class="profile-role">${user.role === "admin" ? "Administrateur" : "Client Horon Phone"}</span>
       <div class="profile-actions">
         ${user.role === "admin" ? '<button class="button button-primary open-admin" type="button">Ouvrir l’administration <span>→</span></button>' : ""}
         <button class="button button-secondary view-orders" type="button">Mes commandes</button>
@@ -280,15 +273,17 @@ function renderAccount() {
       <p class="auth-note">Vos données sont enregistrées localement sur cet appareil.</p>
     </form>`;
 
+  const firstAccountIsAdmin = !users.some(user => user.role === "admin");
   const register = `<div class="auth-tabs"><button class="auth-tab" type="button" data-auth-mode="login">Connexion</button><button class="auth-tab active" type="button" data-auth-mode="register">Inscription</button></div>
     <form class="auth-form register-form">
-      <p class="section-index">NOUVEAU COMPTE</p><h2 id="account-dialog-title">Créer un compte</h2><p>Quelques secondes suffisent pour rejoindre MobiLab.</p>
+      <p class="section-index">NOUVEAU COMPTE</p><h2 id="account-dialog-title">Créer un compte</h2><p>Quelques secondes suffisent pour rejoindre Horon Phone.</p>
       <label class="field"><span>Nom complet</span><input name="name" type="text" autocomplete="name" minlength="2" required /></label>
       <label class="field"><span>Adresse email</span><input name="email" type="email" autocomplete="email" required /></label>
       <label class="field"><span>Téléphone</span><input name="phone" type="tel" autocomplete="tel" placeholder="+223 70 00 00 00" /></label>
       <label class="field"><span>Mot de passe</span><input name="password" type="password" autocomplete="new-password" minlength="8" required /></label>
       <p class="form-error" role="alert"></p>
       <button class="button button-primary auth-submit" type="submit">Créer mon compte <span>→</span></button>
+      ${firstAccountIsAdmin ? '<p class="auth-note">Le premier compte créé sur cet appareil devient le compte administrateur local.</p>' : ""}
     </form>`;
 
   accountContent.innerHTML = authShell(authMode === "register" ? register : login);
@@ -509,14 +504,15 @@ accountContent.addEventListener("submit", async event => {
     const phone = String(data.get("phone") || "").trim();
     if (password.length < 8) { error.textContent = "Le mot de passe doit contenir au moins 8 caractères."; return; }
     if (users.some(entry => entry.email.toLowerCase() === email)) { error.textContent = "Un compte existe déjà avec cet email."; return; }
-    const user = { id: crypto.randomUUID?.() || `user-${Date.now()}`, name, email, phone, passwordHash: await hashPassword(password), role: "customer", createdAt: new Date().toISOString() };
+    const role = users.some(entry => entry.role === "admin") ? "customer" : "admin";
+    const user = { id: crypto.randomUUID?.() || `user-${Date.now()}`, name, email, phone, passwordHash: await hashPassword(password), role, createdAt: new Date().toISOString() };
     users.push(user);
     saveLocal("mobilab-users", users);
     sessionUserId = user.id;
     localStorage.setItem("mobilab-session", user.id);
     updateAccountButton();
     renderAccount();
-    showToast("Votre compte a été créé ✓");
+    showToast(role === "admin" ? "Compte administrateur créé ✓" : "Votre compte a été créé ✓");
   }
 });
 
@@ -655,7 +651,7 @@ document.querySelector(".device-form").addEventListener("submit", event => {
 document.querySelector(".newsletter-form").addEventListener("submit", event => {
   event.preventDefault();
   event.target.reset();
-  showToast("Bienvenue dans la communauté MobiLab !");
+  showToast("Bienvenue dans la communauté Horon Phone !");
 });
 
 document.addEventListener("keydown", event => {
@@ -681,7 +677,7 @@ installButton.addEventListener("click", async () => {
   const choice = await deferredInstallPrompt.userChoice;
   deferredInstallPrompt = null;
   installButton.hidden = true;
-  if (choice.outcome === "accepted") showToast("MobiLab est installée ✓");
+  if (choice.outcome === "accepted") showToast("Horon Phone est installée ✓");
 });
 
 window.addEventListener("appinstalled", () => { deferredInstallPrompt = null; installButton.hidden = true; });
